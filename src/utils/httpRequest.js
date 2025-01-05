@@ -1,97 +1,81 @@
-import axios from 'axios'
-import { useParams } from 'react-router-dom';
+import axios from 'axios';
+import { store } from '~/store/redux/store';
+import { toast } from 'react-toastify';
 
 const httpRequest = axios.create({
     baseURL: import.meta.env.VITE_BASE_URL,
     timeout: 5000,
+    headers: {
+        'Content-Type': 'application/json',
+    },
 });
 
-httpRequest.interceptors.request.use(request => {
-    const fullUrl = `${request.baseURL || ''}${request.url}?${new URLSearchParams(request.params).toString()}`;
-    console.log('Request Full URL with Params:', fullUrl);
-    console.log('params:', request.params);
-    console.log('data:', request.data);
-    return request;
-}
-    // function (error) {
-    //     return Promise.reject(error)
-    // },
-)
+httpRequest.interceptors.request.use(
+    (request) => {
+        if (store.getState().auth.isAuthenicated) {
+            const token = store.getState().auth.account.token;
+            if (token) {
+                request.headers.Authorization = `Bearer ${token}`;
+            }
+            request.headers['Content-Type'] = 'application/json';
+        }
 
-httpRequest.interceptors.response.use(response => {
-    console.log('Response:', response);
-    return response;
-});
+        return request;
+    },
 
-// httpRequest.interceptors.response.use(
-//     function (response) {
-//         return response.data || { statusCode: response.status };
-//     },
-//     function (error) {
-//         if (error.response) {
-//             alert(`Error ${error.response.status}: ${error.response.data}`);
-//             return Promise.reject(error);
-//         } else if (error.request) {
-//             alert("Network error: No response received.");
-//         } else {
-//             alert(`Request setup error: ${error.message}`);
-//         }
-//         return Promise.reject(error);
-//     }
-// );
+    (error) => {
+        console.log('Error in Request: ', error);
+        return Promise.reject(error);
+    }
+);
 
-const cleanParams = (params) => {
-    return Object.fromEntries(
-        Object.entries(params).filter(([key, value]) => {
-            if (value === null || value == "") return false;
-            if (Array.isArray(value) && value.length === 0) return false;
-            if (typeof value === 'object' && Object.keys(value).length === 0) return false;
-            return true;
-        })
-    );
-};
+httpRequest.interceptors.response.use(
+    (response) => {
+        console.log('Response: ', response);
+        return response;
+    },
+
+    (error) => {
+        if (error.code === 'ERR_NETWORK') {
+            toast.error('Network error');
+        }
+        if (error.code === 'ECONNABORTED') {
+            toast.error('Request timeout');
+        }
+        if (error.response && error.response.status === 401) {
+            store.dispatch({
+                type: 'LOGOUT',
+                payload: { account: null, isAuthenicated: false },
+            });
+        }
+        console.log('Error in Response: ', error);
+        return Promise.reject(error.response);
+    }
+);
 
 const joinParams = (arr) => {
-    console.log("Details from joinParams: ", arr)
     return arr.join(',');
 };
 
-const flattenParams = (obj, prefix = '', result = {}) => {
-    for (const key in obj) {
-      if (obj.hasOwnProperty(key)) {
-        const newKey = prefix ? `${prefix}.${key}` : key;
-        if (typeof obj[key] === 'object' && obj[key] !== null) {
-          flattenObject(obj[key], newKey, result);
-        } else {
-          result[newKey] = obj[key];
-        }
-      }
-    }
-    return result;
-  }
-
-const get = async (path, params) => {
-    const cleanedParams = cleanParams({...params, _sort: joinParams(params._sort)});
-    const flattenedParams = flattenParams(cleanedParams);
-    const response = await httpRequest.get(path, { params: flattenedParams });
+const get = async (path, data = {}, params = {}, ...config) => {
+    const response = await httpRequest.get(path, data, { ...config, params });
     return response;
-}
+};
 
-const post = async (path, params) => {
-    const response = await httpRequest.post(path, params);
+const post = async (path, data = {}, params = {}, ...config) => {
+    const response = await httpRequest.post(path, data, { ...config, params });
     return response;
-}
+};
 
-const put = async (path, params) => {
-    console.log('params:', params);
-    const response = await httpRequest.put(path, params);
+const put = async (path, data = {}, params = {}, ...config) => {
+    const response = await httpRequest.put(path, data, { ...config, params });
     return response;
-}
+};
 
 const del = async (path, ids = []) => {
     const response = await httpRequest.delete(`${path}/${joinParams(ids)}`);
     return response;
-}
+};
 
-export { get, post, put, del }
-export default httpRequest
+export { get, post, put, del };
+export default httpRequest;

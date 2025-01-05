@@ -1,74 +1,78 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-    /* html {
-        font-family: 'Inter', sans-serif;
-        line-height: 1.3;
-    }
-    table {
-
-    }
-    th, td {
-        @apply py-3 px-2.5 text-sm text-left border-y border-gray-200;
-    }
-    thead {
-        @apply bg-neutral-100
-    }
-    th {
-        @apply font-semibold;
-    }
-    a {
-        @apply text-sky-500 hover:underline;
-    } */
-
-    /* purple-blue */
-    /* purple-blue */
-
     :root {
-        @apply transition-colors duration-300 ease-in-out;
-        --color-primary: hsl(262, 64%, 47%);
-        --color-secondary: hsl(207, 86%, 54%);
-        --color-tertiary: hsl(45, 100%, 51%);
-        /* --color-bg-base: hsl(270, 47%, 94%); */
-        --color-bg-base: hsl(0, 0%, 100%);
-        --color-bg-primary: hsl(267, 46%, 94%);
-        --color-bg-secondary: hsl(207, 79%, 95%);
-        --color-bg-layout: hsl(210, 30.8%, 94.9%);
-        --color-bg-search: hsl(210, 40%, 98%);
-        --color-border: hsl(210, 18%, 91%);
-        --color-border-search: hsl(0, 0%, 74.1%);
-        --color-text-base: hsl(216, 21%, 27%);
-        --color-scrollbar: hsl(0, 0%, 60%);
-        --color-scrollbar_hover: hsl(215, 13%, 47%);
-        --color-disabled: hsl(238, 15%, 63%);
+        @apply transition-colors duration-300 ease-in-out text-skin;
     }
 
-    :root .purple-blue.light {
-        --color-primary: hsl(262, 64%, 47%);
-        --color-secondary: hsl(207, 86%, 54%);
-        --color-tertiary: hsl(45, 100%, 51%);
-        /* --color-bg-base: hsl(270, 47%, 94%); */
-        --color-bg-base: hsl(0, 0%, 100%);
-        --color-bg-primary: hsl(267, 46%, 94%);
-        --color-bg-secondary: hsl(207, 79%, 95%);
-        --color-bg-search: hsl(210, 40%, 98%);
-        --color-border: hsl(210, 18%, 91%);
-        --color-border-search: hsl(0, 0%, 74.1%);
-        --color-text-base: hsl(216, 21%, 27%);
-        --color-search-icon: hsla(0, 0%, 0%, 0.54);
-        --color-scrollbar: hsl(0, 0%, 60%);
-        --color-scrollbar_hover: hsl(215, 13%, 47%);
+    :root .light {
+        --color-success: hsl(145, 100%, 39.2%);
+        --color-warning: hsl(45, 100%, 51.4%);
+        --color-error: rgb(244, 67, 54);
+        --color-disabled: hsla(0, 0%, 0%, 0.12);
     }
 
-    :root .purple-blue.dark {
+    :root .dark {
+        --color-success: hsl(144.9, 100%, 39.22%);
+        --color-warning: hsl(45, 100%, 51.4%);
+        --color-error: hsl(4.11, 89.62%, 58.43%);
+        --color-disabled: hsla(0, 0%, 0%, 0.12);
+    }
+
+    :root .tibetan.light {
+        --color-success: rgb(111, 158, 71);
+        --color-warning: rgb(220, 148, 0);
+        --color-error: rgb(208, 8, 12);
+        --color-disabled: rgba(0, 0, 0, 0.12);
+    }
+
+    :root .amethyst.light {
+        /* textColor */
+        --color-primary: rgb(99, 43, 197);
+        --color-primary-inverted: rgb(239, 233, 247);
+        --color-secondary: rgb(37, 148, 239);
+        --color-secondary-inverted: rgb(232, 243, 252);
+
+        /* backgroundColor */
+        --color-bg-base: rgb(255, 255, 255);
+        --color-bg-layout: rgb(238, 242, 246);
+        --color-bg-search: rgb(248, 250, 252);
+
+        /* borderColor */
+        --color-border: rgb(189, 189, 189);
+
+        /* textColor */
+        --color-text: rgb(54, 66, 83);
+        --color-text-base: rgb(255, 255, 255);
+        --color-text-accent: rgb(54, 66, 83);
+        --color-text-muted: rgb(157, 157, 158);
+
+        /* scrollBar */
+        --color-scrollbar: rgb(153, 153, 153);
+        --color-scrollbar-hover: rgb(104, 117, 135);
+
+        /* others */
+        --color-utility: rgb(146, 147, 175);
+        --color-utility-dark: rgb(41, 49, 79);
+        --color-utility-logo: rgb(31, 51, 151);
+        --color-utility-icon-search: rgb(75, 79, 87);
+        --color-utility-text-search: rgb(138, 144, 156);
+
+        /* boxShadow */
+        --shadow-button: rgba(0, 0, 0, 0.2) 0px 3px 1px -2px, rgba(0, 0, 0, 0.14) 0px 2px 2px 0px, rgba(0, 0, 0, 0.12) 0px 1px 5px 0px;
+        --shadow-button-hover: rgba(0, 0, 0, 0.2) 0px 2px 4px -1px, rgba(0, 0, 0, 0.14) 0px 4px 5px 0px, rgba(0, 0, 0, 0.12) 0px 1px 10px 0px;
+        --shadow-inner-focus: var(--color-secondary) inset 0px 0px 0px 1.5px;
+        --shadow-paper-elevation-1: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+    }
+
+    :root .amethyst.dark {
         --color-primary: hsl(262, 64%, 47%);
         --color-secondary: hsl(207, 86%, 54%);
         --color-tertiary: hsl(45, 100%, 51%);
-        /* --color-bg-base: hsl(0, 0%, 7%); */
         --color-bg-base: hsl(0, 0%, 100%);
         --color-bg-primary: hsl(0, 0%, 12%);
         --color-bg-secondary: hsl(0, 0%, 16%);
@@ -78,27 +82,123 @@
         --color-scrollbar_hover: hsl(0, 0%, 53%);
     }
 
-    /* ocean */
-    :root .ocean.light {
-        --color-primary: hsl(183, 100%, 42%);
-        --color-secondary: hsl(196, 98%, 48%);
-        --color-tertiary: hsl(196, 100%, 63%);
-        /* --color-bg-base: hsl(197, 73%, 94%); */
-        --color-bg-base: hsl(0, 0%, 100%);
-        --color-bg-primary: hsl(197, 63%, 89%);
-        --color-bg-secondary: hsl(187, 63%, 83%);
-        --color-bg-search: hsl(210, 40%, 98%);
-        /* --color-border: hsl(204, 98%, 41%); */
-        --color-border: hsl(210, 18%, 91%);
-        --color-border-search: hsl(0, 0%, 74.1%);
-        /* --color-text-base: hsl(210, 99%, 30%); */
-        --color-text-base: hsl(216, 21%, 27%);
-        --color-search-icon: hsla(0, 0%, 0%, 0.54);
-        --color-scrollbar: hsl(183, 100%, 33%);
-        --color-scrollbar_hover: hsl(183, 100%, 42%);
+    :root .tibetan.light {
+        /* textColor */
+        /* --color-primary: rgb(226, 130, 3); */
+        /* --color-primary: rgb(183, 99, 0); */
+        /* --color-primary: rgb(173, 55, 30); */
+        /* --color-primary: rgb(163, 62, 40); */
+        /* --color-primary: rgb(186, 42, 32); */
+        /* --color-primary: rgb(176, 25, 25); */
+        /* --color-primary: rgb(164, 40, 32); */
+        --color-primary: rgb(159, 52, 52);
+        /* --color-primary-inverted: rgb(233, 211, 175); */
+        /* --color-primary-inverted: rgb(221, 175, 100); */
+        /* --color-primary-inverted: rgb(224, 147, 38); */
+        /* --color-primary-inverted: rgb(229, 153, 44); */
+        /* --color-primary-inverted: rgb(248, 184, 58); */
+        --color-primary-inverted: rgb(220, 146, 67);
+        /* --color-secondary: rgb(5, 138, 113); */
+        /* --color-secondary: rgb(22, 106, 135); */
+        /* --color-secondary: rgb(4, 83, 111); */
+        /* --color-secondary: rgb(0, 90, 127); */
+        /* --color-secondary: rgb(2, 95, 110); */
+        /* --color-secondary: rgb(11, 70, 133);
+        --color-secondary: rgb(27, 90, 122); */
+        /* --color-secondary: rgb(20, 97, 136); */
+        /* --color-secondary: rgb(39, 83, 129); */
+        --color-secondary: rgb(48, 83, 119);
+        /* --color-secondary-inverted: rgb(103, 168, 168); */
+        /* --color-secondary-inverted: rgb(86, 144, 147); */
+        /* --color-secondary-inverted: rgb(69, 163, 127); */
+        /* --color-secondary-inverted: rgb(60, 157, 115); */
+        /* --color-secondary-inverted: rgb(36, 137, 115); */
+        /* --color-secondary-inverted: rgb(35, 178, 148); */
+        /* --color-secondary-inverted: rgb(43, 205, 171); */
+        /* --color-secondary-inverted: rgb(58, 173, 176); */
+        --color-secondary-inverted: rgb(76, 167, 170);
+
+        /* backgroundColor */
+        /* --color-bg-base: rgb(204, 186, 159); */
+        --color-bg-base: rgb(231, 212, 190);
+        /* --color-bg-layout: hsl(66, 15%, 87%); */
+        --color-bg-layout: rgb(201, 186, 148);
+        /* --color-bg-search: hsl(210, 40%, 98%); */
+        /* --color-bg-search: rgb(21, 95, 131); */
+        --color-bg-search: rgb(29, 79, 104);
+        --color-bg-search: rgb(104, 63, 85);
+
+        /* borderColor */
+        /* --color-border: rgb(131, 102, 40); */
+        --color-border: rgb(228, 186, 148);
+        --color-border: rgb(182, 176, 156);
+
+        /* textColor */
+        /* --color-text: hsl(216, 21%, 27%); */
+        --color-text: rgb(84, 68, 41);
+        --color-text-base: rgb(255, 255, 255);
+        --color-text-accent: rgb(54, 66, 83);
+        --color-text-muted: rgba(0, 0, 0, 0.26);
+
+        /* scrollBar */
+        --color-scrollbar: rgb(202, 72, 72);
+        --color-scrollbar-hover: rgb(243, 12, 28);
+
+        /* others */
+        --color-utility: rgb(171, 146, 135);
+        --color-utility-dark: rgb(72, 74, 112);
+        --color-utility-logo: rgb(208, 8, 12);
+        --color-utility-icon-search: rgb(195, 206, 18);
+        --color-utility-text-search: rgb(215, 194, 109);
+
+        /* boxShadow */
+        --shadow-button: rgba(0, 0, 0, 0.2) 0px 3px 1px -2px, rgba(0, 0, 0, 0.14) 0px 2px 2px 0px, rgba(0, 0, 0, 0.12) 0px 1px 5px 0px;
+        --shadow-button-hover: rgba(0, 0, 0, 0.2) 0px 2px 4px -1px, rgba(0, 0, 0, 0.14) 0px 4px 5px 0px, rgba(0, 0, 0, 0.12) 0px 1px 10px 0px;
+        --shadow-inner-focus: rgb(210, 67, 138) inset 0px 0px 0px 1.5px;
     }
 
-    :root .ocean.dark {
+    /* azure */
+    :root .azure.light {
+        /* textColor */
+        --color-primary: rgb(12, 97, 205); /* Rich Azure Blue */
+        --color-primary-inverted: rgb(216, 236, 255); /* Brightened Light Azure */
+        --color-secondary: rgb(0, 150, 230); /* Vibrant Sky Blue */
+        --color-secondary-inverted: rgb(200, 235, 255); /* Brighter Pale Sky Blue */
+    
+        /* backgroundColor */
+        --color-bg-base: rgb(240, 247, 255); /* Concentrated White-Blue */
+        --color-bg-layout: rgb(220, 235, 250); /* Richer Light Azure Tint */
+        --color-bg-search: rgb(230, 240, 255); /* Clear Light Sky Blue */
+    
+        /* borderColor */
+        --color-border: hsl(210, 30%, 75%); /* More Pronounced Cool Gray */
+    
+        /* textColor */
+        --color-text: rgb(22, 33, 50); /* Deeper Cool Dark Gray */
+        --color-text-base: rgb(255, 255, 255); /* White */
+        --color-text-accent: rgb(12, 97, 205); /* Rich Azure Blue */
+        --color-text-muted: rgba(0, 0, 0, 0.75); /* More Visible Black */
+    
+        /* scrollBar */
+        --color-scrollbar: rgb(80, 110, 140); /* Darker Grayish Blue */
+        --color-scrollbar-hover: rgb(50, 80, 110); /* Stronger Cool Dark Blue */
+    
+        /* others */
+        --color-utility: rgb(108, 148, 196); /* Medium Steel Blue */
+        --color-utility-dark: rgb(26, 56, 86); /* Rich Blue-Gray */
+        --color-utility-logo: rgb(11, 71, 180); /* Concentrated Deep Azure */
+        --color-utility-icon-search: rgb(70, 100, 130); /* Deep Grayish Blue */
+        --color-utility-text-search: rgb(103, 130, 160); /* Stronger Cool Muted Blue */
+    
+        /* boxShadow */
+        --shadow-button: rgba(0, 0, 0, 0.25) 0px 3px 1px -2px, rgba(0, 0, 0, 0.18) 0px 2px 2px 0px, rgba(0, 0, 0, 0.15) 0px 1px 5px 0px;
+        --shadow-button-hover: rgba(0, 0, 0, 0.3) 0px 2px 4px -1px, rgba(0, 0, 0, 0.22) 0px 4px 5px 0px, rgba(0, 0, 0, 0.18) 0px 1px 10px 0px;
+        --shadow-inner-focus: var(--color-secondary) inset 0px 0px 0px 1.5px;
+    }
+    
+    
+
+    :root .azure.dark {
         --color-primary: hsl(183, 100%, 42%);
         --color-secondary: hsl(196, 98%, 48%);
         --color-tertiary: hsl(196, 100%, 63%);
@@ -112,27 +212,47 @@
         --color-scrollbar_hover: hsl(183, 100%, 33%);
     }
 
-    /* sunset */
-    :root .sunset.light {
-        --color-primary: hsl(14, 100%, 57%);
-        --color-secondary: hsl(45, 100%, 51%);
-        --color-tertiary: hsl(54, 100%, 63%);
-        /* --color-bg-base: hsl(39, 100%, 94%); */
-        --color-bg-base: hsl(0, 0%, 100%);
-        --color-bg-primary: hsl(35, 100%, 85%);
-        --color-bg-secondary: hsl(35, 100%, 75%);
-        --color-bg-search: hsl(210, 40%, 98%);
-        /* --color-border: hsl(53, 98%, 60%); */
-        --color-border: hsl(210, 18%, 91%);
-        --color-border-search: hsl(0, 0%, 74.1%);
-        /* --color-text-base: hsl(18, 41%, 24%); */
-        --color-text-base: hsl(216, 21%, 27%);
-        --color-search-icon: hsla(0, 0%, 0%, 0.54);
-        --color-scrollbar: hsl(14, 100%, 46%);
-        --color-scrollbar_hover: hsl(14, 100%, 63%);
+    /* horizon */
+    :root .horizon.light {
+        /* textColor */
+        --color-primary: rgb(233, 94, 27); /* Horizon Orange */
+        --color-primary-inverted: rgb(255, 236, 220); /* Light Sunset Glow */
+        --color-secondary: rgb(255, 145, 0); /* Vibrant Amber */
+        --color-secondary-inverted: rgb(255, 235, 200); /* Soft Amber Tint */
+    
+        /* backgroundColor */
+        --color-bg-base: rgb(255, 247, 240); /* Warm Creamy White */
+        --color-bg-layout: rgb(255, 228, 207); /* Sunset Sand */
+        --color-bg-search: rgb(255, 242, 226); /* Peach Tint */
+    
+        /* borderColor */
+        --color-border: hsl(30, 45%, 75%); /* Warm Beige Border */
+    
+        /* textColor */
+        --color-text: rgb(55, 40, 30); /* Deep Warm Brown */
+        --color-text-base: rgb(255, 255, 255); /* White */
+        --color-text-accent: rgb(233, 94, 27); /* Horizon Orange */
+        --color-text-muted: rgba(55, 40, 30, 0.7); /* Muted Brown */
+    
+        /* scrollBar */
+        --color-scrollbar: rgb(184, 113, 76); /* Medium Terracotta */
+        --color-scrollbar-hover: rgb(159, 88, 51); /* Rich Terracotta */
+    
+        /* others */
+        --color-utility: rgb(210, 151, 110); /* Warm Sandstone */
+        --color-utility-dark: rgb(97, 64, 41); /* Deep Sunset Brown */
+        --color-utility-logo: rgb(171, 88, 56); /* Burnt Sienna */
+        --color-utility-icon-search: rgb(150, 95, 65); /* Sandy Terracotta */
+        --color-utility-text-search: rgb(185, 120, 90); /* Warm Clay */
+    
+        /* boxShadow */
+        --shadow-button: rgba(0, 0, 0, 0.2) 0px 3px 1px -2px, rgba(0, 0, 0, 0.14) 0px 2px 2px 0px, rgba(0, 0, 0, 0.12) 0px 1px 5px 0px;
+        --shadow-button-hover: rgba(0, 0, 0, 0.25) 0px 2px 4px -1px, rgba(0, 0, 0, 0.18) 0px 4px 5px 0px, rgba(0, 0, 0, 0.15) 0px 1px 10px 0px;
+        --shadow-inner-focus: var(--color-secondary) inset 0px 0px 0px 1.5px;
     }
+    
 
-    :root .sunset.dark {
+    :root .horizon.dark {
         --color-primary: hsl(14, 100%, 57%);
         --color-secondary: hsl(45, 100%, 51%);
         --color-tertiary: hsl(54, 100%, 63%);
@@ -146,27 +266,46 @@
         --color-scrollbar_hover: hsl(14, 100%, 63%);
     }
 
-    /* grayscale */
-    :root .grayscale.light {
-        --color-primary: hsl(0, 0%, 46%);
-        --color-secondary: hsl(0, 0%, 74%);
-        --color-tertiary: hsl(0, 0%, 88%);
-        /* --color-bg-base: hsl(0, 0%, 98%); */
-        --color-bg-base: hsl(0, 0%, 100%);
-        --color-bg-primary: hsl(0, 0%, 96%);
-        --color-bg-secondary: hsl(0, 0%, 93%);
-        --color-bg-search: hsl(210, 40%, 98%);
-        /* --color-border: hsl(0, 0%, 74%); */
-        --color-border: hsl(210, 18%, 91%);
-        --color-border-search: hsl(0, 0%, 74.1%);
-        /* --color-text-base: hsl(0, 0%, 13%); */
-        --color-text-base: hsl(216, 21%, 27%);
-        --color-search-icon: hsla(0, 0%, 0%, 0.54);
-        --color-scrollbar: hsl(0, 0%, 62%);
-        --color-scrollbar_hover: hsl(0, 0%, 46%);
+    /* monochrome */
+    :root .monochrome.light {
+        /* textColor */
+        --color-primary: rgb(60, 60, 60); /* Dark Gray */
+        --color-primary-inverted: rgb(240, 240, 240); /* Light Gray */
+        --color-secondary: rgb(100, 100, 100); /* Medium Gray */
+        --color-secondary-inverted: rgb(220, 220, 220); /* Pale Gray */
+    
+        /* backgroundColor */
+        --color-bg-base: rgb(255, 255, 255); /* White */
+        --color-bg-layout: rgb(245, 245, 245); /* Soft Light Gray */
+        --color-bg-search: rgb(235, 235, 235); /* Subtle Gray */
+    
+        /* borderColor */
+        --color-border: hsl(0, 0%, 80%); /* Medium-Light Gray */
+    
+        /* textColor */
+        --color-text: rgb(30, 30, 30); /* Rich Black */
+        --color-text-base: rgb(255, 255, 255); /* White */
+        --color-text-accent: rgb(60, 60, 60); /* Dark Gray */
+        --color-text-muted: rgba(30, 30, 30, 0.7); /* Muted Black */
+    
+        /* scrollBar */
+        --color-scrollbar: rgb(150, 150, 150); /* Medium Gray */
+        --color-scrollbar-hover: rgb(100, 100, 100); /* Darker Gray */
+    
+        /* others */
+        --color-utility: rgb(200, 200, 200); /* Light Gray Utility */
+        --color-utility-dark: rgb(80, 80, 80); /* Darker Utility Gray */
+        --color-utility-logo: rgb(40, 40, 40); /* Strong Dark Gray */
+        --color-utility-icon-search: rgb(120, 120, 120); /* Cool Medium Gray */
+        --color-utility-text-search: rgb(180, 180, 180); /* Soft Pale Gray */
+    
+        /* boxShadow */
+        --shadow-button: rgba(0, 0, 0, 0.1) 0px 3px 1px -2px, rgba(0, 0, 0, 0.08) 0px 2px 2px 0px, rgba(0, 0, 0, 0.06) 0px 1px 5px 0px;
+        --shadow-button-hover: rgba(0, 0, 0, 0.2) 0px 2px 4px -1px, rgba(0, 0, 0, 0.15) 0px 4px 5px 0px, rgba(0, 0, 0, 0.12) 0px 1px 10px 0px;
+        --shadow-inner-focus: var(--color-secondary) inset 0px 0px 0px 1.5px;
     }
 
-    :root .grayscale.dark {
+    :root .monochrome.dark {
         --color-primary: hsl(0, 0%, 46%);
         --color-secondary: hsl(0, 0%, 74%);
         --color-tertiary: hsl(0, 0%, 88%);
@@ -180,35 +319,32 @@
     }
 
     body {
-        @apply m-0 bg-base_bg font-sans text-sm font-normal text-txt;
+        @apply m-0 bg-skin-base font-sans text-sm font-normal;
     }
 
     /* Sidebar styles */
-    .sidebar {
-        height: 100vh;
-        overflow-y: hidden;
-        transition: overflow-y 0.2s;
+    .scrollbar {
+        @apply h-screen overflow-y-hidden transition duration-200;
     }
 
-    .sidebar:hover {
-        overflow-y: auto;
+    .scrollbar:hover {
+        @apply overflow-y-auto;
     }
 
     /* Custom scrollbar styles for WebKit browsers (Chrome, Safari) */
-    .sidebar::-webkit-scrollbar {
-        width: 5px;
+    .scrollbar::-webkit-scrollbar {
+        @apply w-[5px];
     }
 
-    .sidebar::-webkit-scrollbar-track {
-        background: var(--color-bg-base);
-        border-radius: 10px;
+    .scrollbar::-webkit-scrollbar-track {
+        @apply rounded-[10px] bg-skin-base;
     }
 
-    .sidebar::-webkit-scrollbar-thumb {
-        @apply bg-scrollbar;
+    .scrollbar::-webkit-scrollbar-thumb {
+        @apply bg-skin-scrollbar;
     }
 
-    .sidebar::-webkit-scrollbar-thumb:hover {
-        @apply bg-scrollbar__hover;
+    .scrollbar::-webkit-scrollbar-thumb:hover {
+        @apply bg-skin-scrollbar-hover;
     }
 }
